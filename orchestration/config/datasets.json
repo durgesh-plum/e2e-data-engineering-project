@@ -3,56 +3,56 @@
     "fileSystem": "olist",
     "sourceDirectory": "datasets",
     "sourceFileName": "olist_customers_dataset.csv",
-    "sinkDirectory": "customers",
+    "sinkDirectory": "bronze/customers",
     "sinkFileName": "olist_customers_dataset.csv"
   },
   {
     "fileSystem": "olist",
     "sourceDirectory": "datasets",
     "sourceFileName": "olist_orders_dataset.csv",
-    "sinkDirectory": "orders",
+    "sinkDirectory": "bronze/orders",
     "sinkFileName": "olist_orders_dataset.csv"
   },
   {
     "fileSystem": "olist",
     "sourceDirectory": "datasets",
     "sourceFileName": "olist_order_items_dataset.csv",
-    "sinkDirectory": "order_items",
+    "sinkDirectory": "bronze/order_items",
     "sinkFileName": "olist_order_items_dataset.csv"
   },
   {
     "fileSystem": "olist",
     "sourceDirectory": "datasets",
     "sourceFileName": "olist_order_reviews_dataset.csv",
-    "sinkDirectory": "order_reviews",
+    "sinkDirectory": "bronze/order_reviews",
     "sinkFileName": "olist_order_reviews_dataset.csv"
   },
   {
     "fileSystem": "olist",
     "sourceDirectory": "datasets",
     "sourceFileName": "olist_products_dataset.csv",
-    "sinkDirectory": "products",
+    "sinkDirectory": "bronze/products",
     "sinkFileName": "olist_products_dataset.csv"
   },
   {
     "fileSystem": "olist",
     "sourceDirectory": "datasets",
     "sourceFileName": "olist_sellers_dataset.csv",
-    "sinkDirectory": "sellers",
+    "sinkDirectory": "bronze/sellers",
     "sinkFileName": "olist_sellers_dataset.csv"
   },
   {
     "fileSystem": "olist",
     "sourceDirectory": "datasets",
     "sourceFileName": "olist_geolocation_dataset.csv",
-    "sinkDirectory": "geolocation",
+    "sinkDirectory": "bronze/geolocation",
     "sinkFileName": "olist_geolocation_dataset.csv"
   },
   {
     "fileSystem": "olist",
     "sourceDirectory": "datasets",
     "sourceFileName": "olist_order_payments_dataset.csv",
-    "sinkDirectory": "payments",
+    "sinkDirectory": "bronze/payments",
     "sinkFileName": "olist_order_payments_dataset.csv"
   }
 ]

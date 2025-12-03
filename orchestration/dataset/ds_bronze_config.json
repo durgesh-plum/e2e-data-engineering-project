@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "datasets.csv",
+				"fileName": "datasets.json",
 				"folderPath": "config",
 				"fileSystem": "olist"
 			}

@@ -1,0 +1,35 @@
+{
+	"name": "ds_bronze_sink",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adls_olist",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"FileSystem": {
+				"type": "string"
+			},
+			"Directory": {
+				"type": "string"
+			},
+			"FileName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "@dataset().FileName",
+				"folderPath": "@dataset().Directory",
+				"fileSystem": "@dataset().FileSystem"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}

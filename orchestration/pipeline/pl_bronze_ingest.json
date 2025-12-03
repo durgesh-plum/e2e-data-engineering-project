@@ -72,10 +72,12 @@
 		],
 		"parameters": {
 			"p_FileSystem": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "olist"
 			},
 			"p_SourceDirectory": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "raw/customers"
 			},
 			"p_SourceFileName": {
 				"type": "string"

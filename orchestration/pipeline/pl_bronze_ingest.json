@@ -26,12 +26,46 @@
 							"type": "DelimitedTextReadSettings"
 						}
 					},
-					"enableStaging": false
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
 				},
 				"inputs": [
 					{
 						"referenceName": "ds_bronze_source",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"folderPath": "@pipeline().parameters.p_SourceDirectory",
+							"fileName": "@pipeline().parameters.p_SourceFileName"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ds_bronze_sink",
+						"type": "DatasetReference",
+						"parameters": {
+							"FileSystem": "@pipeline().parameters.p_FileSystem",
+							"Directory": "@pipeline().parameters.p_SinkDirectory",
+							"FileName": "@pipeline().parameters.p_SinkFileName"
+						}
 					}
 				]
 			}
@@ -51,6 +85,11 @@
 			},
 			"p_SinkFileName": {
 				"type": "string"
+			}
+		},
+		"variables": {
+			"FileList": {
+				"type": "String"
 			}
 		},
 		"annotations": []

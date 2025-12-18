@@ -1,6 +1,24 @@
 {
 	"name": "pl_e2e_controller",
 	"properties": {
+		"activities": [
+			{
+				"name": "pl_bronze_controller",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pl_bronze_controller",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
 		"annotations": []
 	}
 }

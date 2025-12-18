@@ -17,6 +17,60 @@
 					},
 					"waitOnCompletion": true
 				}
+			},
+			{
+				"name": "_silver_runner",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "pl_bronze_controller",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Repos/durgesh_m@protonmail.com/olist-azure-lakehouse/notebooks/02_silver/_silver_runner"
+				},
+				"linkedServiceName": {
+					"referenceName": "ls_databricks_olist",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "_gold_runner",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "_silver_runner",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Repos/durgesh_m@protonmail.com/olist-azure-lakehouse/notebooks/03_gold/_gold_runner"
+				},
+				"linkedServiceName": {
+					"referenceName": "ls_databricks_olist",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
 		"annotations": []

@@ -28,7 +28,7 @@
 					"type": "Expression"
 				},
 				"folderPath": {
-					"value": "@concat(\n  dataset().Directory,\n  '/',\n  dataset().SubDirectory,\n  '/ingest_date=',\n  formatDateTime(utcNow(), 'yyyy-MM-dd')\n)\n",
+					"value": "@dataset().Directory",
 					"type": "Expression"
 				},
 				"fileSystem": {

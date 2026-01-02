@@ -5,6 +5,17 @@
 			"referenceName": "ls_adls_olist",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"FileSystem": {
+				"type": "string"
+			},
+			"Directory": {
+				"type": "string"
+			},
+			"FileName": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "Json",
 		"typeProperties": {

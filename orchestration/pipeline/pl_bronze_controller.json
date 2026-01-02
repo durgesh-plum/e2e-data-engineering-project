@@ -67,11 +67,26 @@
 								},
 								"waitOnCompletion": true,
 								"parameters": {
-									"p_FileSystem": "@item().fileSystem\n",
-									"p_SourceDirectory": "@item().sourceDirectory\n",
-									"p_SourceFileName": "@item().sourceFileName\n",
-									"p_SinkDirectory": "@item().sinkDirectory\n",
-									"p_SinkFileName": "@item().sinkFileName\n"
+									"p_FileSystem": {
+										"value": "@item().fileSystem\n",
+										"type": "Expression"
+									},
+									"p_SourceDirectory": {
+										"value": "@item().sourceDirectory\n",
+										"type": "Expression"
+									},
+									"p_SourceFileName": {
+										"value": "@item().sourceFileName\n",
+										"type": "Expression"
+									},
+									"p_SinkDirectory": {
+										"value": "@item().sinkDirectory\n",
+										"type": "Expression"
+									},
+									"p_SinkFileName": {
+										"value": "@item().sinkFileName\n",
+										"type": "Expression"
+									}
 								}
 							}
 						}

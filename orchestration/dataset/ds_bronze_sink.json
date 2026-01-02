@@ -14,6 +14,9 @@
 			},
 			"FileName": {
 				"type": "string"
+			},
+			"SubDirectory": {
+				"type": "string"
 			}
 		},
 		"annotations": [],
@@ -26,11 +29,11 @@
 					"type": "Expression"
 				},
 				"folderPath": {
-					"value": "@concat('bronze/', dataset().Directory)\n",
+					"value": "@concat(\n  dataset().Directory,\n  '/',\n  dataset().SubDirectory,\n  '/ingest_date=',\n  formatDateTime(utcNow(), 'yyyy-MM-dd')\n)\n",
 					"type": "Expression"
 				},
 				"fileSystem": {
-					"value": "olist",
+					"value": "@dataset().FileSystem\n",
 					"type": "Expression"
 				}
 			},

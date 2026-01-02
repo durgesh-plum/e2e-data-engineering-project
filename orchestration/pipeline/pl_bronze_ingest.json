@@ -64,7 +64,7 @@
 						"parameters": {
 							"FileSystem": "@pipeline().parameters.p_FileSystem",
 							"Directory": {
-								"value": "@pipeline().parameters.p_SinkDirectory",
+								"value": "@concat(\n  'bronze/',\n  pipeline().parameters.p_SinkDirectory,\n  '/ingest_date=',\n  formatDateTime(utcnow(), 'yyyy-MM-dd')\n)\n",
 								"type": "Expression"
 							},
 							"FileName": "@pipeline().parameters.p_SinkFileName",

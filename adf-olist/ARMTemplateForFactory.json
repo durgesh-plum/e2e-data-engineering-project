@@ -57,7 +57,11 @@
 							"dataset": {
 								"referenceName": "ds_bronze_config",
 								"type": "DatasetReference",
-								"parameters": {}
+								"parameters": {
+									"FileSystem": "olist ",
+									"Directory": "config",
+									"FileName": "datasets.json"
+								}
 							},
 							"firstRowOnly": false
 						}
@@ -335,6 +339,17 @@
 				"linkedServiceName": {
 					"referenceName": "ls_adls_olist",
 					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"FileSystem": {
+						"type": "string"
+					},
+					"Directory": {
+						"type": "string"
+					},
+					"FileName": {
+						"type": "string"
+					}
 				},
 				"annotations": [],
 				"type": "Json",

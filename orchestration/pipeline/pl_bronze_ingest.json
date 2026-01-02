@@ -62,9 +62,8 @@
 						"referenceName": "ds_bronze_sink",
 						"type": "DatasetReference",
 						"parameters": {
-							"FileSystem": "@pipel",
-							"Directory": "bronze",
-							"FileName": "@pipeline().parameters.p_SinkFileName"
+							"FileName": "@pipeline().parameters.p_SinkFileName",
+							"SubDirectory": "@pipeline().parameters.p_SinkDirectory"
 						}
 					}
 				]

@@ -109,6 +109,9 @@
 					},
 					"FileName": {
 						"type": "string"
+					},
+					"p_RunDate": {
+						"type": "string"
 					}
 				},
 				"annotations": [],
@@ -121,7 +124,7 @@
 							"type": "Expression"
 						},
 						"folderPath": {
-							"value": "@dataset().Directory",
+							"value": "@concat(dataset().Directory, '/', dataset().p_RunDate)",
 							"type": "Expression"
 						},
 						"fileSystem": {
@@ -250,8 +253,15 @@
 								"type": "DatasetReference",
 								"parameters": {
 									"FileSystem": "@pipeline().parameters.p_FileSystem",
-									"Directory": "@concat(   'bronze/',   pipeline().parameters.p_SinkDirectory,   '/ingest_date=',   formatDateTime(utcNow(), 'yyyy-MM-dd') )",
-									"FileName": "@pipeline().parameters.p_SinkFileName"
+									"Directory": {
+										"value": "@pipeline().parameters.p_SinkDirectory",
+										"type": "Expression"
+									},
+									"FileName": "@pipeline().parameters.p_SinkFileName",
+									"p_RunDate": {
+										"value": "@concat('ingest_date=', formatDateTime(utcNow(), 'yyyy-MM-dd'))",
+										"type": "Expression"
+									}
 								}
 							}
 						]

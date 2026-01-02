@@ -363,12 +363,10 @@
 				},
 				"parameters": {
 					"FileSystem": {
-						"type": "string",
-						"defaultValue": "olist"
+						"type": "string"
 					},
 					"Directory": {
-						"type": "string",
-						"defaultValue": "bronze"
+						"type": "string"
 					},
 					"FileName": {
 						"type": "string"

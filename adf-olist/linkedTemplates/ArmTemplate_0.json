@@ -91,12 +91,17 @@
 				},
 				"parameters": {
 					"FileSystem": {
-						"type": "string"
+						"type": "string",
+						"defaultValue": "olist"
 					},
 					"Directory": {
-						"type": "string"
+						"type": "string",
+						"defaultValue": "bronze"
 					},
 					"FileName": {
+						"type": "string"
+					},
+					"SubDirectory": {
 						"type": "string"
 					}
 				},
@@ -110,11 +115,11 @@
 							"type": "Expression"
 						},
 						"folderPath": {
-							"value": "@dataset().Directory",
+							"value": "@concat(\n  dataset().Directory,\n  '/',\n  dataset().SubDirectory,\n  '/ingest_date=',\n  formatDateTime(utcNow(), 'yyyy-MM-dd')\n)\n",
 							"type": "Expression"
 						},
 						"fileSystem": {
-							"value": "bronze",
+							"value": "@dataset().FileSystem\n",
 							"type": "Expression"
 						}
 					},
@@ -238,9 +243,8 @@
 								"referenceName": "ds_bronze_sink",
 								"type": "DatasetReference",
 								"parameters": {
-									"FileSystem": "@pipeline().parameters.p_FileSystem",
-									"Directory": "@pipeline().parameters.p_SinkDirectory",
-									"FileName": "@pipeline().parameters.p_SinkFileName"
+									"FileName": "@pipeline().parameters.p_SinkFileName",
+									"SubDirectory": "@pipeline().parameters.p_SinkDirectory"
 								}
 							}
 						]

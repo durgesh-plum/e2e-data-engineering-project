@@ -199,8 +199,9 @@
 								"referenceName": "ds_bronze_sink",
 								"type": "DatasetReference",
 								"parameters": {
-									"FileName": "@pipeline().parameters.p_SinkFileName",
-									"SubDirectory": "@pipeline().parameters.p_SinkDirectory"
+									"FileSystem": "@pipeline().parameters.p_FileSystem",
+									"Directory": "@concat('bronze/', pipeline().parameters.p_SinkDirectory, '/ingest_date=', formatDateTime(utcNow(),'yyyy-MM-dd'))",
+									"FileName": "@pipeline().parameters.p_SinkFileName"
 								}
 							}
 						]
@@ -371,9 +372,6 @@
 					},
 					"FileName": {
 						"type": "string"
-					},
-					"SubDirectory": {
-						"type": "string"
 					}
 				},
 				"annotations": [],
@@ -386,7 +384,7 @@
 							"type": "Expression"
 						},
 						"folderPath": {
-							"value": "@concat(\n  dataset().Directory,\n  '/',\n  dataset().SubDirectory,\n  '/ingest_date=',\n  formatDateTime(utcNow(), 'yyyy-MM-dd')\n)\n",
+							"value": "@dataset().Directory",
 							"type": "Expression"
 						},
 						"fileSystem": {

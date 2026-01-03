@@ -26,7 +26,7 @@
 					"type": "Expression"
 				},
 				"folderPath": {
-					"value": "@concat(dataset().Directory, '/', dataset().p_RunDate)",
+					"value": "@concat(dataset().Directory)",
 					"type": "Expression"
 				},
 				"fileSystem": {

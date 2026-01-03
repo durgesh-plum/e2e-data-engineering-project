@@ -52,11 +52,11 @@
 						"referenceName": "ds_bronze_source",
 						"type": "DatasetReference",
 						"parameters": {
-							"folderPath": {
+							"FileSystem": {
 								"value": "@pipeline().parameters.p_SourceDirectory",
 								"type": "Expression"
 							},
-							"fileName": {
+							"Directory": {
 								"value": "@pipeline().parameters.p_SourceFileName",
 								"type": "Expression"
 							}

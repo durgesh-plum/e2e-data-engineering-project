@@ -19,14 +19,14 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": {
-					"value": "olist_customers_dataset.csv",
+					"value": "@dataset().fileName",
 					"type": "Expression"
 				},
 				"folderPath": {
-					"value": "datasets",
+					"value": "@dataset().directory",
 					"type": "Expression"
 				},
-				"fileSystem": "olist"
+				"fileSystem": "@dataset().fileSystem"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",

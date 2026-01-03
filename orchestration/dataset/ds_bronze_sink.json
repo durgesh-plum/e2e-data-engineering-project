@@ -7,16 +7,13 @@
 		},
 		"parameters": {
 			"FileSystem": {
-				"type": "string",
-				"defaultValue": "olist"
+				"type": "string"
 			},
 			"Directory": {
-				"type": "string",
-				"defaultValue": "bronze"
+				"type": "string"
 			},
 			"FileName": {
-				"type": "string",
-				"defaultValue": "dummy.csv"
+				"type": "string"
 			}
 		},
 		"annotations": [],
@@ -25,15 +22,15 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": {
-					"value": "DEBUG_PROOF.csv",
+					"value": "@dataset().fileName",
 					"type": "Expression"
 				},
 				"folderPath": {
-					"value": "bronze/customers",
+					"value": "@dataset().directory",
 					"type": "Expression"
 				},
 				"fileSystem": {
-					"value": "olist",
+					"value": "@dataset().fileSystem",
 					"type": "Expression"
 				}
 			},

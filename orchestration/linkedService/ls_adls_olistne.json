@@ -1,0 +1,10 @@
+{
+	"name": "ls_adls_olistne",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://stolistlakehousene.dfs.core.windows.net/"
+		}
+	}
+}

@@ -52,14 +52,9 @@
 						"referenceName": "ds_bronze_source",
 						"type": "DatasetReference",
 						"parameters": {
-							"FileSystem": {
-								"value": "@pipeline().parameters.p_SourceDirectory",
-								"type": "Expression"
-							},
-							"Directory": {
-								"value": "@pipeline().parameters.p_SourceFileName",
-								"type": "Expression"
-							}
+							"FileSystem": "@pipeline().parameters.p_FileSystem",
+							"Directory": "@pipeline().parameters.p_SourceDirectory",
+							"FileName": "@pipeline().parameters.p_SourceFileName"
 						}
 					}
 				],

@@ -2,7 +2,7 @@
 	"name": "ds_bronze_source",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "ls_adls_olist",
+			"referenceName": "ls_adls_olistne",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {

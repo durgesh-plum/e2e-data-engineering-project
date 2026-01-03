@@ -25,15 +25,15 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": {
-					"value": "DEBUG_TEST.csv",
+					"value": "DEBUG_PROOF.csv",
 					"type": "Expression"
 				},
 				"folderPath": {
-					"value": "@concat(dataset().Directory)",
+					"value": "bronze/customers",
 					"type": "Expression"
 				},
 				"fileSystem": {
-					"value": "@dataset().FileSystem\n",
+					"value": "olist",
 					"type": "Expression"
 				}
 			},

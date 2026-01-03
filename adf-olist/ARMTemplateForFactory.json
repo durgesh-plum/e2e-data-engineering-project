@@ -203,14 +203,16 @@
 								"referenceName": "ds_bronze_sink",
 								"type": "DatasetReference",
 								"parameters": {
-									"FileSystem": "@pipeline().parameters.p_FileSystem",
-									"Directory": {
-										"value": "@concat(\n  'bronze/',\n  pipeline().parameters.p_SinkDirectory,\n  '/ingest_date=',\n  formatDateTime(utcnow(), 'yyyy-MM-dd')\n)\n",
+									"FileSystem": {
+										"value": "@pipeline().parameters.p_FileSystem\n",
 										"type": "Expression"
 									},
-									"FileName": "@pipeline().parameters.p_SinkFileName",
-									"p_RunDate": {
-										"value": "@utcnow()",
+									"Directory": {
+										"value": "@concat(\n  'bronze/',\n  pipeline().parameters.p_SinkDirectory,\n  '/ingest_date=',\n  formatDateTime(utcNow(),'yyyy-MM-dd')\n)\n",
+										"type": "Expression"
+									},
+									"FileName": {
+										"value": "@pipeline().parameters.p_SinkFileName\n",
 										"type": "Expression"
 									}
 								}
@@ -385,16 +387,16 @@
 				},
 				"parameters": {
 					"FileSystem": {
-						"type": "string"
+						"type": "string",
+						"defaultValue": "olist"
 					},
 					"Directory": {
-						"type": "string"
+						"type": "string",
+						"defaultValue": "bronze"
 					},
 					"FileName": {
-						"type": "string"
-					},
-					"p_RunDate": {
-						"type": "string"
+						"type": "string",
+						"defaultValue": "dummy.csv"
 					}
 				},
 				"annotations": [],
@@ -403,11 +405,11 @@
 					"location": {
 						"type": "AzureBlobFSLocation",
 						"fileName": {
-							"value": "@dataset().FileName",
+							"value": "DEBUG_TEST.csv",
 							"type": "Expression"
 						},
 						"folderPath": {
-							"value": "@concat(dataset().Directory, '/', dataset().p_RunDate)",
+							"value": "@concat(dataset().Directory)",
 							"type": "Expression"
 						},
 						"fileSystem": {

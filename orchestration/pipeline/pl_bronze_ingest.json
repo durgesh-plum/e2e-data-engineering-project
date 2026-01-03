@@ -62,14 +62,16 @@
 						"referenceName": "ds_bronze_sink",
 						"type": "DatasetReference",
 						"parameters": {
-							"FileSystem": "@pipeline().parameters.p_FileSystem",
-							"Directory": {
-								"value": "@concat(\n  'bronze/',\n  pipeline().parameters.p_SinkDirectory,\n  '/ingest_date=',\n  formatDateTime(utcnow(), 'yyyy-MM-dd')\n)\n",
+							"FileSystem": {
+								"value": "olist",
 								"type": "Expression"
 							},
-							"FileName": "@pipeline().parameters.p_SinkFileName",
-							"p_RunDate": {
-								"value": "@utcnow()",
+							"Directory": {
+								"value": "DEBUG\n",
+								"type": "Expression"
+							},
+							"FileName": {
+								"value": "DEBUG_TEST.csv",
 								"type": "Expression"
 							}
 						}

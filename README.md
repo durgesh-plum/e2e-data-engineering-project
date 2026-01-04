@@ -138,7 +138,7 @@ Design Highlights
 - Parameterised source/sink paths
 - End-to-end control pipeline:
 
-Bronze → Silver Runner → Gold Runner Diagram
+![ADF Pipeline](diagrams/adf_e2e_pipeline.png)
 
 ---
 📊 Analytics & Power BI

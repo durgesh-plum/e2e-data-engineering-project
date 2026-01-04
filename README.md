@@ -24,13 +24,9 @@ Goal: Build an industry-grade, scalable analytics pipeline using Azure-native se
 ---
 🏗️ Logical Architecture
 
-flowchart LR
-    A[Kaggle CSV Dataset] --> B[Azure Data Factory]
-    B --> C[ADLS Gen2 - Bronze]
-    C --> D[Databricks Silver Layer]
-    D --> E[Databricks Gold Layer]
-    E --> F[Databricks SQL Warehouse]
-    F --> G[Power BI Dashboard]
+![Logical Architecture](diagrams/logical_architecture.png)
+
+**Design Pattern:** Medallion Architecture (Bronze → Silver → Gold)  
 
 ---
 📦 Dataset

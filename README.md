@@ -9,7 +9,7 @@ The pipeline follows modern Bronze → Silver → Gold design principles and exp
 
 Goal: Build an industry-grade, scalable analytics pipeline using Azure-native services.
 
-Technology Stack
+#Technology Stack
 
 | Layer            | Technology                             |
 | ---------------- | -------------------------------------- |

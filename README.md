@@ -9,3 +9,6 @@ Data is then cleaned, standardized, deduplicated, and quality-checked in Silver 
 Finally, analytics-ready Gold fact and dimension tables are produced and exposed to Power BI via a Databricks SQL Warehouse.
 
 The pipeline is fully orchestrated, repeatable, and production-aligned.
+
+
+Architecture Diagram — Logical Flow

@@ -70,6 +70,7 @@ Characteristics
 - No transformations
 
 ADLS Container Structure
+Each Bronze entity is partitioned by ingest_date to support reprocessing and auditability
 ```text
 olist/
 └── bronze/
@@ -85,7 +86,7 @@ olist/
     ├── products/
     └── sellers/
 ```
-Each Bronze entity is partitioned by ingest_date to support reprocessing and auditability
+
 ---
 🥈 Silver Layer – Cleansed & Conformed
 

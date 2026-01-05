@@ -8,6 +8,16 @@ It demonstrates end-to-end data engineering: ingestion, transformation, orchestr
 The pipeline follows modern Bronze → Silver → Gold design principles and exposes analytics through Power BI via Databricks SQL Warehouse.
 
 Goal: Build an industry-grade, scalable analytics pipeline using Azure-native services.
+---
+📁 Repository Structure
+
+olist-azure-lakehouse/
+├── notebooks/          # Databricks Bronze, Silver, Gold notebooks
+├── orchestration/      # Azure Data Factory pipelines & datasets
+├── powerbi/            # PBIDS, DAX measures, screenshots
+├── diagrams/           # Architecture & data model diagrams
+├── datasets/           # Config files for ingestion
+└── README.md
 
 ---
 🧰 Technology Stack
@@ -139,6 +149,7 @@ Pipelines
 Design Highlights
 - Lookup + ForEach for dataset-driven ingestion
 - Parameterised source/sink paths
+- The `pl_e2e_controller` pipeline orchestrates Bronze ingestion and triggers Silver and Gold Databricks notebooks sequentially.
 - End-to-end control pipeline:
 
 ![ADF Pipeline](diagrams/adf_e2e_pipeline.png)
@@ -185,7 +196,7 @@ Pipelines fail fast on data quality violations.
 1. Upload dataset to ADLS (or use Kaggle source)
 2. Configure ADF linked services
 3. Run pl_e2e_controller pipeline
-4. Execute Silver & Gold notebooks
+4. Azure Data Factory triggers Silver & Gold Databricks notebooks
 5. Refresh Power BI dataset
 
 ---
@@ -195,12 +206,3 @@ Pipelines fail fast on data quality violations.
 - SQL Warehouse for Power BI → semantic layer separation
 - Config-driven ingestion → scalable dataset onboarding
 - Star schema → analytics-first design
-
----
-🛠️ Technical Challenges & Resolutions
-Challenge: Ensuring that re-running the pipeline wouldn't result in duplicate records or corrupted data in the Silver layer.
-
-Resolution: Shifted from a simple "Overwrite" logic to a Delta MERGE approach. By matching on business keys (e.g., order_id, customer_id), the pipeline performs upserts—updating existing records and inserting new ones—ensuring the layer remains conformed and idempotent.
-
-
-

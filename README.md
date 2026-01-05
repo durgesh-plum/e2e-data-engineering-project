@@ -24,7 +24,10 @@ Goal: Build an industry-grade, scalable analytics pipeline using Azure-native se
 ---
 🏗️ Logical Architecture
 
-![Logical Architecture](diagrams/logical_architecture.png)
+### 🏗️ Logical Architecture
+<p align="center">
+  <img src="./image_2d4663.png" width="80%" alt="Azure Lakehouse Architecture">
+</p>
 
 **Design Pattern:** Medallion Architecture (Bronze → Silver → Gold)  
 
@@ -194,3 +197,12 @@ Pipelines fail fast on data quality violations.
 - SQL Warehouse for Power BI → semantic layer separation
 - Config-driven ingestion → scalable dataset onboarding
 - Star schema → analytics-first design
+
+---
+🛠️ Technical Challenges & Resolutions
+Challenge: Ensuring that re-running the pipeline wouldn't result in duplicate records or corrupted data in the Silver layer.
+
+Resolution: Shifted from a simple "Overwrite" logic to a Delta MERGE approach. By matching on business keys (e.g., order_id, customer_id), the pipeline performs upserts—updating existing records and inserting new ones—ensuring the layer remains conformed and idempotent.
+
+
+

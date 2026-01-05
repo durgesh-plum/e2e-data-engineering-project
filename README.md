@@ -24,10 +24,8 @@ Goal: Build an industry-grade, scalable analytics pipeline using Azure-native se
 ---
 🏗️ Logical Architecture
 
-### 🏗️ Logical Architecture
-<p align="center">
-  <img src="./image_2d4663.png" width="80%" alt="Azure Lakehouse Architecture">
-</p>
+![Logical Architecture](diagrams/logical_architecture.png)
+
 
 **Design Pattern:** Medallion Architecture (Bronze → Silver → Gold)  
 
